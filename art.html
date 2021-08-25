@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="shortcut icon" href="doggle fav.png" type="image/x-icon">  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Doggle</title>
+  <link rel="stylesheet" href="assets/css/main.min.css" />
+</head>
+<body>
+  <canvas></canvas>
+  <main>
+  	<img src="doggle.png">
+    <section class="colors">
+      <input type="text" class="color-picker" value="#171717" />
+    </section>
+    <section class="thickness">
+      <input type="number" class="stroke-weight" value="3" />
+    </section>
+    <button class="clear">✖</button>
+  </main>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+<style type="text/css">
+	body{margin:0;padding:0;width:100vw;height:100vh;background:#F3F3F3;font-family:'Roboto', 'Helvetica', sans-serif}
+	main{border-radius: 15px; position:absolute;top:0;left:0;bottom:0;width:50px;background:#ffffff}
+	main section{display:block;margin:15px auto;width:30px;height:30px}
+	main .colors{border-radius: 15px; background:#171717;border:1px solid #F3F3F3;position:relative}
+	main .colors .color-picker{display:none;width:200px;height:30px;position:absolute;top:50%;left:30px;-webkit-transform:translateY(-50%);transform:translateY(-50%)}main .colors .color-picker:focus{display:block}
+	main .colors:hover .color-picker{display:block}
+	main .thickness{border-radius: 15px; position:relative;background-color:#F3F3F3}
+	main .thickness::after{content:'';position:absolute;left:50%;top:50%;-webkit-transform:translate(-50%, -50%);transform:translate(-50%, -50%);width:50%;height:50%;border-radius:50%;background:#171717}
+	main .thickness .stroke-weight{display:none;position:absolute;width:auto;height:25px;left:30px;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}main .thickness .stroke-weight:focus{display:block}
+	main .thickness:hover .stroke-weight{display:block}
+	main .clear{display:block;width:30px;height:30px;margin:0 auto;color:#171717;font-size:20px;font-weight:900;background-color:#ff7a62;border:none;outline:none;cursor:pointer transition: ease-out 0.3s; box-shadow: inset 0 0 0 0 #FFFFFF;}
+  main .clear:hover {
+    box-shadow: inset 200px 0 0 0 #FFFFFF;
+    color: black;
+  }
+
+</style>
+<script type="text/javascript">
+	const clearButton = document.querySelector('.clear');
+const stroke_weight = document.querySelector('.stroke-weight');
+const color_picker = document.querySelector('.color-picker');
+
+const canvas = document.querySelector('canvas');
+const ctx = canvas.getContext('2d');
+let isDrawing = false;
+
+canvas.addEventListener('mousedown', start);
+canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mouseup', stop);
+
+clearButton.addEventListener('click', clearCanvas);
+
+function start (e) {
+  isDrawing = true;
+  draw(e);
+}
+
+function draw ({clientX: x, clientY: y}) {
+  if (!isDrawing) return;
+  ctx.lineWidth = stroke_weight.value;
+  ctx.lineCap = "round";
+  ctx.strokeStyle = color_picker.value;
+
+  ctx.lineTo(x, y);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+}
+
+function stop () {
+  isDrawing = false;
+  ctx.beginPath();
+}
+
+function clearCanvas () {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+window.addEventListener('resize', resizeCanvas);
+function resizeCanvas () {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvas();
+</script>

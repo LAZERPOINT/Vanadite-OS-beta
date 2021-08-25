@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lunar OS</title>
+  <link rel="shortcut icon" href="fav.png" type="image/x-icon"> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --color: #ffffff;
+    --font-color: #000000;
+  }
+  body {
+    background-image: url("bg.png");
+    background-size: cover;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+  }
+  * { cursor: url(cursor.png), default; }
+  .info {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 7px;
+    position: absolute;
+    color: white;
+    backdrop-filter: blur(5px) saturate(100%);
+  }
+  .date {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    position: absolute;
+    color: white;
+  }
+  .taskbar {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    padding: 7px;
+    position: absolute;
+    backdrop-filter: blur(5px) saturate(100%);
+  }
+
+.dropbtn {
+  background-image: url("doggle.png");
+  color: white;
+  padding: 30px;
+  border: none;
+  box-shadow: insent 0, 0, 0, 0, #000000;
+  border-radius: 20px;
+  opacity: 100%;
+  transition: ease-out;
+}
+
+.dropup {
+  position: relative;
+  display: inline-block;
+  opacity: 100%;
+}
+
+.dropup-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  z-index: 1;
+  border-radius: 10px;
+  border: none;
+  opacity: 100%;
+}
+
+.dropup-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  opacity: 100%;
+}
+
+.dropup:hover .dropup-content {
+  display: block;
+  opacity: 100%;
+}
+.browserbtn {
+  background-image: url("browser.png");
+  color: white;
+  padding: 30px;
+  border: none;
+  border-radius: 20px;
+  opacity: 100%;
+  transition: ease-out;
+}
+
+.browserbtn {
+  box-shadow: insent 0, 0, 0, 0, #000000;
+}
+
+.browser {
+  position: relative;
+  display: inline-block;
+  opacity: 100%;
+}
+
+.browsercont {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  z-index: 1;
+  border-radius: 10px;
+  border: none;
+  opacity: 100%;
+}
+
+.browsercont a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  opacity: 100%;
+}
+
+.browser:hover .browsercont {
+  display: block;
+  box-shadow: insent 100px, 0, 0, 0, #000000;
+  opacity: 100%;
+}
+
+.settingsbtn {
+  background-image: url("settings.png");
+  color: white;
+  padding: 30px;
+  border: none;
+  border-radius: 20px;
+  opacity: 100%;
+  max-height: 500px;
+  box-shadow: insent 0, 0, 0, 0, #000000;
+  transition: ease-out;
+}
+
+.settingsbtn {
+  box-shadow: insent 100px, 0, 0, 0, #000000;
+}
+
+.settings {
+  position: relative;
+  display: inline-block;
+  opacity: 100%;
+}
+
+.settingsmenu {
+  font-family: 'Poppins', sans-serif;
+  display: none;
+  position: absolute;
+  background-color: var(--color);
+  min-width: 500px;
+  min-height: 500px;
+  z-index: 1;
+  text-align: center;
+  border-radius: 10px;
+  opacity: 100%;
+  color: var(--font-color)
+}
+.settingsmenu p {
+  font-size: 30px;
+  opacity: 100%;
+}
+
+.settingsmenu b {
+  font-family: 'Poppins', sans-serif;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  opacity: 100%;
+}
+
+.settings:hover .settingsmenu {
+  display: block;
+  opacity: 100%;
+}
+
+.filebtn {
+  background-image: url("files.png");
+  color: white;
+  padding: 30px;
+  border: none;
+  border-radius: 20px;
+  opacity: 100%;
+  max-height: 500px;
+  box-shadow: insent 0, 0, 0, 0, #000000;
+  transition: ease-out;
+}
+
+.filebtn {
+  box-shadow: insent 100px, 0, 0, 0, #000000;
+}
+
+.files {
+  position: relative;
+  display: inline-block;
+  opacity: 100%;
+}
+
+.filecontents {
+  font-family: 'Poppins', sans-serif;
+  display: none;
+  position: absolute;
+  background-color: var(--color);
+  min-width: 500px;
+  min-height: 500px;
+  z-index: 1;
+  text-align: center;
+  border-radius: 10px;
+  opacity: 100%;
+  color: var(--font-color)
+}
+.filecontents p {
+  font-size: 30px;
+  opacity: 100%;
+}
+
+.filecontents b {
+  font-family: 'Poppins', sans-serif;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  opacity: 100%;
+}
+
+.files:hover .filecontents {
+  display: block;
+  opacity: 100%;
+}
+button {
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+}
+input {
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+}
+.todo_list {
+  backdrop-filter: blur(5px) saturate(100%);
+  right: 1%;
+  background-color: rgba(255, 255, 255, 0.2);
+  max-width: 400px;
+  max-height: 200px;
+  text-align: right;
+  color: black;
+  border-radius: 10px;
+  position: absolute; 
+  padding: 5px;
+  border: none;
+  padding: 10px;
+}
+
+</style>
+</head>
+<div class="todo_list">
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>To Do List</title>
+</head>
+<body>
+    <h1>To Do List</h1>
+    <div class="container">
+        <input id="inputField" type="text"><button id="addToDo">+</button>
+        <div class="to-dos" id="toDoContainer">
+        </div>
+    </div>
+    <script>
+      let addToDoButton = document.getElementById('addToDo');
+let toDoContainer = document.getElementById('toDoContainer');
+let inputField = document.getElementById('inputField');
+
+addToDoButton.addEventListener('click', function(){
+    var paragraph = document.createElement('p');
+    paragraph.classList.add('paragraph-styling');
+    paragraph.innerText = inputField.value;
+    toDoContainer.appendChild(paragraph);
+    inputField.value = "";
+    paragraph.addEventListener('click', function(){
+        paragraph.style.textDecoration = "line-through";
+    })
+    paragraph.addEventListener('dblclick', function(){
+        toDoContainer.removeChild(paragraph);
+    })
+})
+    </script>
+    <style type="text/css">
+</style>
+</body>
+</html>
+</div>
+  <div class="date">
+    <p id="date"></p>
+  </div>
+  <div class="info">
+    <body onload="startTime()">
+    <div id="txt">
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="taskbar">
+    <div class="dropup">
+      <button class="dropbtn"> </button>
+      <div class="dropup-content">
+        <iframe src="art.html" width="500" height="500"heigh></iframe>
+  </div>
+    <div class="browser">
+  <button class="browserbtn"> </button>
+  <div class="browsercont">
+      <iframe src="https://www.google.com/webhp?igu=1" width="500" height="500"heigh></iframe>
+  </div>
+      <div class="files">
+  <button class="filebtn"> </button>
+  <div class="filecontents">
+
+  </div>
+    <div class="settings">
+  <button class="settingsbtn"> </button>
+  <div class="settingsmenu">
+      <div class="menu">
+        <img src="lunaros.gif"> 
+        <p> v2.0 </p>
+        <p2> (!) This build is not finalized so any bugs or issues may be resigned in the future </p2>
+        <h1> Theme </h1>
+        <h2>Background Color: </h2><input type="color" id="theme" value="#ffffff">
+        <h2>Text Color: </h2><input type="color" id="txttheme" value="#ffffff">
+  </div>
+
+</div>
+<script type="text/javascript" src="vanilla-tilt.js">
+  
+</script>
+</body>
+</html>
+<script type="text/javascript">
+  let theme = document.getElementById('theme')
+
+  theme.addEventListener('change', (e) => {
+    console.log(e.target.value)
+    document.documentElement.style.setProperty('--color', e.target.value)
+  })
+  let txttheme = document.getElementById('txttheme')
+
+  txttheme.addEventListener('change', (e) => {
+    console.log(e.target.value)
+    document.documentElement.style.setProperty('--font-color', e.target.value)
+  })
+  function startTime() {
+  const today = new Date();
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+  setTimeout(startTime, 1000);
+}
+
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+  VanillaTilt.init(document.querySelector(".todo_list"), {
+    max: 25,
+    speed: 400
+  });
+
+  VanillaTilt.init(document.querySelector(".info"), {
+    max: 25,
+    speed: 400
+  });
+</script>
