@@ -193,7 +193,7 @@
   box-shadow: insent 100px, 0, 0, 0, #000000;
 }
 
-.files {
+.fileapp {
   position: relative;
   display: inline-block;
   opacity: 100%;
@@ -226,7 +226,7 @@
   opacity: 100%;
 }
 
-.files:hover .filecontents {
+.fileapp:hover .filecontents {
   display: block;
   opacity: 100%;
 }
@@ -255,6 +255,15 @@ input {
   padding: 5px;
   border: none;
   padding: 10px;
+}
+.fileapp input {
+  border: none;
+}
+
+img {
+  height: 75px;
+  border-radius: 10px;
+  margin: 10px;
 }
 
 </style>
@@ -306,6 +315,7 @@ addToDoButton.addEventListener('click', function(){
   </div>
   <br>
   <br>
+
   <div class="taskbar">
     <div class="dropup">
       <button class="dropbtn"> </button>
@@ -317,12 +327,25 @@ addToDoButton.addEventListener('click', function(){
   <div class="browsercont">
       <iframe src="https://www.google.com/webhp?igu=1" width="500" height="500"heigh></iframe>
   </div>
-      <div class="files">
+      <div class="fileapp">
   <button class="filebtn"> </button>
   <div class="filecontents">
-
+    <div class="container">
+      <br><br>
+      <form id="form" enctype="multipart/form-data" method="post">
+        <div class="form-group">
+          <input type="file" class="form-control" id="image">
+        </div>
+        <div class="form-group">
+          <button>Upload</button>
+    </div>
+    </form>
+    <button onclick="remove()">Delete all photos</button>
+    <div id="result">
+    </div>
+    </div>
   </div>
-    <div class="settings">
+  <div class="settings">
   <button class="settingsbtn"> </button>
   <div class="settingsmenu">
       <div class="menu">
@@ -334,7 +357,6 @@ addToDoButton.addEventListener('click', function(){
         <h2>Text Color: </h2><input type="color" id="txttheme" value="#ffffff">
   </div>
 
-</div>
 <script type="text/javascript" src="vanilla-tilt.js">
   
 </script>
@@ -377,4 +399,52 @@ function checkTime(i) {
     max: 25,
     speed: 400
   });
+  var form = document.getElementById('form')
+
+  var parentDiv = document.getElementById('result')
+
+  form.addEventListener('submit',function(event) {
+    event.preventDefault()
+
+    var reader = new FileReader()
+
+    var name = document.getElementById("image").files[0].name
+
+    reader.addEventListener('load', function() {
+      if(this.result && localStorage) {
+        window.localStorage.setItem(name,this.result)
+        alert("Image saved.")
+        parentDiv.innerHTML = ''
+        showImages()
+      }
+      else {
+        alert("Image was not saved.")
+      }
+    })
+
+    reader.readAsDataURL(document.getElementById('image').files[0])
+
+    console.log(name)
+
+  })
+
+    function showImages() {
+    for (let i = 0;i < window.localStorage.length; i++){
+      let res = window.localStorage.getItem(window.localStorage.key(i))
+      var image  = new Image()
+      image.src = res;
+
+      parentDiv.appendChild(image)
+
+    }
+  }
+
+  function remove() {
+    window.localStorage.clear()
+    showImages()
+    parentDiv.innerHTML = ''
+  }
+
+  showImages()
+
 </script>
