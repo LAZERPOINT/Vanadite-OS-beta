@@ -231,6 +231,59 @@
   display: block;
   opacity: 100%;
 }
+.calcbt {
+  background-image: url("calc.png");
+  color: white;
+  padding: 30px;
+  border: none;
+  border-radius: 20px;
+  opacity: 100%;
+  max-height: 500px;
+  box-shadow: insent 0, 0, 0, 0, #000000;
+  transition: ease-out;
+}
+
+.calcbt {
+  box-shadow: insent 100px, 0, 0, 0, #000000;
+}
+
+.calc {
+  position: relative;
+  display: inline-block;
+  opacity: 100%;
+}
+
+.calculator {
+  font-family: 'Poppins', sans-serif;
+  display: none;
+  position: absolute;
+  background-color: var(--color);
+  min-width: 500px;
+  min-height: 500px;
+  z-index: 1;
+  text-align: center;
+  border-radius: 10px;
+  opacity: 100%;
+  color: var(--font-color)
+}
+.calculator p {
+  font-size: 30px;
+  opacity: 100%;
+}
+
+.calculator b {
+  font-family: 'Poppins', sans-serif;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  opacity: 100%;
+}
+
+.calc:hover .calculator {
+  display: block;
+  opacity: 100%;
+}
 button {
   border: none;
   border-radius: 10px;
@@ -355,6 +408,11 @@ addToDoButton.addEventListener('click', function(){
       <button class="dropbtn"> </button>
       <div class="dropup-content">
         <iframe src="art.html" width="500" height="500"heigh></iframe>
+  </div>
+  <div class="calc">
+      <button class="calcbt"> </button>
+      <div class="calculator">
+        <iframe src="calc.html" width="500" height="500"heigh></iframe>
   </div>
     <div class="browser">
   <button class="browserbtn"> </button>
