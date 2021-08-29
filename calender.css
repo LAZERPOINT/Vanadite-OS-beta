@@ -126,9 +126,9 @@
 
 .calendar-days div.curr-date,
 .calendar-days div.curr-date:hover {
-    background-color: var(--blue);
+    background-image: linear-gradient(#FF60DF, #AC74FF);
     color: var(--white);
-    border-radius: 50%;
+    border-radius: 30%;
 }
 
 .calendar-days div.curr-date span {
