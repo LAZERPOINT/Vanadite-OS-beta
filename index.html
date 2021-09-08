@@ -40,11 +40,11 @@
   }
   .taskbar {
     background-color: rgba(255, 255, 255, 0.09);
-    border-radius: 100px 60px 60px 100px;
+    border-radius: 25px 25px 0px 0px;
     padding: 7px;
     position: absolute;
     backdrop-filter: blur(5px) saturate(100%);
-    bottom: 2%;
+    bottom: 0%;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -69,7 +69,7 @@
 
 iframe {
   border: none;
-  border-radius: 10px
+  border-radius: 10px;
 }
 
 .dropup-content {
@@ -84,6 +84,8 @@ iframe {
   bottom: 60px;
   left: 50%;
   transform: translateX(-50%);
+  resize: both;
+  overflow: auto;
 }
 
 .dropup-content a {
@@ -133,6 +135,8 @@ iframe {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  resize: both;
+  overflow: auto;
 }
 
 .browsercont a {
@@ -180,6 +184,8 @@ iframe {
   opacity: 100%;
   color: var(--text-color);
   bottom: 50px;
+  resize: both;
+  overflow: auto;
 }
 .settingsmenu p {
   font-size: 30px;
@@ -236,6 +242,8 @@ iframe {
   opacity: 100%;
   color: var(--font-color)
   bottom: 50px;
+  resize: both;
+  overflow: auto;
 }
 .filecontents p {
   font-size: 30px;
@@ -293,6 +301,8 @@ iframe {
   opacity: 100%;
   color: var(--font-color)
   bottom: 50px;
+  resize: both;
+  overflow: auto;
 }
 .calculator p {
   font-size: 30px;
@@ -329,7 +339,7 @@ input {
   background: url("start menu.png");
   padding: 30px;
   border: none;
-  border-radius: 100px;
+  border-radius: 20px;
   opacity: 100%;
   max-height: 500px;
 }
@@ -354,6 +364,8 @@ input {
   opacity: 100%;
   color: var(--font-color)
   bottom: 50px;
+  resize: both;
+  overflow: auto;
 }
 .startmenu p {
   font-size: 30px;
@@ -410,14 +422,26 @@ input {
   backdrop-filter: blur(5px) saturate(100%);
   position: absolute;
   right: 0.5%;
-  background-color: rgba(255, 255, 255, 0.2);
-  min-width: 300px;
-  max-width: 300px;
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 300px;
+  width: 300px;
   text-align: right;
-  color: var(--font-color);
-  border-radius: 10px; 
-  border: none;
+  border-radius: 10px;
   padding: 10px;
+  overflow: hidden;
+  border: 1px white;
+}
+
+.todo_list::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.1);
+  transform: skewX(-395deg);
+  filter: blur(10px);
 }
 
 .todo_list button {
@@ -437,6 +461,66 @@ img {
   height: 75px;
   border-radius: 10px;
   margin: 10px;
+}
+
+.textbtn {
+  background-image: url("ide.png");
+  color: white;
+  padding: 30px;
+  border: none;
+  border-radius: 20px;
+  opacity: 100%;
+  max-height: 500px;
+  box-shadow: insent 0, 0, 0, 0, #000000;
+  transition: ease-out;
+}
+
+.textbtn {
+  box-shadow: insent 100px, 0, 0, 0, #000000;
+}
+
+.text {
+  position: relative;
+  display: inline-block;
+  opacity: 100%;
+}
+
+.texteditor {
+  font-family: 'Poppins', sans-serif;
+  display: none;
+  position: absolute;
+  background-color: var(--color);
+  min-width: 500px;
+  min-height: 500px;
+  z-index: 1;
+  text-align: center;
+  border-radius: 10px;
+  opacity: 100%;
+  color: var(--font-color)
+  bottom: 50px;
+  resize: both;
+  overflow: auto;
+}
+.texteditor p {
+  font-size: 30px;
+  opacity: 100%;
+}
+
+.texteditor b {
+  font-family: 'Poppins', sans-serif;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  opacity: 100%;
+}
+
+.text:hover .texteditor {
+  display: block;
+  opacity: 100%;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-70%);
 }
 
 
@@ -532,6 +616,11 @@ addToDoButton.addEventListener('click', function(){
     <div id="result">
     </div>
     </div>
+  </div>
+  <div class="text">
+    <button class="textbtn"> </button>
+        <div class="texteditor">
+          <iframe src="ide.html" width="700" height="600"heigh></iframe>
   </div>
   <div class="settings">
   <button class="settingsbtn"> </button>
