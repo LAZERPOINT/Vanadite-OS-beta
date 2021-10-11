@@ -1,659 +1,358 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Vanadite OS</title>
-  <link rel="shortcut icon" href="fav.png" type="image/x-icon"> 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-  :root {
-    --color: #ffffff;
-    --font-color: #000000;
-  }
-  body {
-    background-image: url("bg.gif");
-    background-size: cover;
-    text-align: right;
-    font-family: 'Poppins', sans-serif;
-  }
-  * { cursor: url(cursor.png), default; }
-  .info {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    padding: 7px;
-    position: absolute;
-    color: white;
-    backdrop-filter: blur(5px) saturate(100%);
-  }
-  .clock {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    padding: 7px;
-    position: absolute;
-    color: black;
-    backdrop-filter: blur(5px) saturate(100%);
-  }
-  .date {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    position: absolute;
-    color: white;
-  }
-  .taskbar {
-    background-color: rgba(255, 255, 255, 0.09);
-    border-radius: 25px 25px 0px 0px;
-    padding: 7px;
-    position: absolute;
-    backdrop-filter: blur(5px) saturate(100%);
-    bottom: 0%;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-  }
-
-.dropbtn {
-  background-image: url("doggle.png");
-  color: white;
-  padding: 30px;
-  border: none;
-  box-shadow: insent 0, 0, 0, 0, #000000;
-  border-radius: 20px;
-  opacity: 100%;
-  transition: ease-out;
-}
-
-.dropup {
-  position: relative;
-  display: inline-block;
-  opacity: 100%;
-}
-
-iframe {
-  border: none;
-  border-radius: 10px;
-}
-
-.dropup-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  z-index: 1;
-  border-radius: 10px;
-  border: none;
-  opacity: 100%;
-  bottom: 60px;
-  left: 50%;
-  transform: translateX(-50%);
-  resize: both;
-  overflow: auto;
-}
-
-.dropup-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  opacity: 100%;
-  bottom: 50px;
-  position: absolute;
-}
-
-.dropup:hover .dropup-content {
-  display: block;
-  opacity: 100%;
-}
-.browserbtn {
-  background-image: url("browser.png");
-  color: white;
-  padding: 30px;
-  border: none;
-  border-radius: 20px;
-  opacity: 100%;
-  transition: ease-out;
-}
-
-.browserbtn {
-  box-shadow: insent 0, 0, 0, 0, #000000;
-}
-
-.browser {
-  position: relative;
-  display: inline-block;
-  opacity: 100%;
-}
-
-.browsercont {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  z-index: 1;
-  border-radius: 10px;
-  border: none;
-  opacity: 100%;
-  bottom: 60px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  resize: both;
-  overflow: auto;
-}
-
-.browsercont a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  opacity: 100%;
-}
-
-.browser:hover .browsercont {
-  display: block;
-  box-shadow: insent 100px, 0, 0, 0, #000000;
-  opacity: 100%;
-}
-
-.settingsbtn {
-  background-image: url("settings.png");
-  color: white;
-  padding: 30px;
-  border: none;
-  border-radius: 20px;
-  opacity: 100%;
-  max-height: 500px;
-  box-shadow: insent 0, 0, 0, 0, #000000;
-  transition: ease-out;
-}
-
-.settings {
-  display: inline-block;
-  opacity: 100%;
-  position: relative;
-}
-
-.settingsmenu {
-  font-family: 'Poppins', sans-serif;
-  display: none;
-  position: absolute;
-  background-color: var(--color);
-  min-width: 500px;
-  min-height: 500px;
-  z-index: 1;
-  text-align: center;
-  border-radius: 10px;
-  opacity: 100%;
-  color: var(--text-color);
-  bottom: 50px;
-  resize: both;
-  overflow: auto;
-}
-.settingsmenu p {
-  font-size: 30px;
-  opacity: 100%;
-}
-
-.settingsmenu b {
-  font-family: 'Poppins', sans-serif;
-  padding: 12px 16px;
-  display: block;
-  opacity: 100%;
-}
-
-.settings:hover .settingsmenu {
-  display: block;
-  opacity: 100%;
-  bottom: 60px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.filebtn {
-  background-image: url("files.png");
-  color: white;
-  padding: 30px;
-  border: none;
-  border-radius: 20px;
-  opacity: 100%;
-  max-height: 500px;
-  box-shadow: insent 0, 0, 0, 0, #000000;
-  transition: ease-out;
-}
-
-.filebtn {
-  box-shadow: insent 100px, 0, 0, 0, #000000;
-}
-
-.fileapp {
-  position: relative;
-  display: inline-block;
-  opacity: 100%;
-}
-
-.filecontents {
-  font-family: 'Poppins', sans-serif;
-  display: none;
-  position: absolute;
-  background-color: var(--color);
-  min-width: 500px;
-  min-height: 500px;
-  z-index: 1;
-  text-align: center;
-  border-radius: 10px;
-  opacity: 100%;
-  color: var(--font-color)
-  bottom: 50px;
-  resize: both;
-  overflow: auto;
-}
-.filecontents p {
-  font-size: 30px;
-  opacity: 100%;
-}
-
-.filecontents b {
-  font-family: 'Poppins', sans-serif;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  opacity: 100%;
-}
-
-.fileapp:hover .filecontents {
-  display: block;
-  opacity: 100%;
-  bottom: 60px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.calcbt {
-  background-image: url("calc.png");
-  color: white;
-  padding: 30px;
-  border: none;
-  border-radius: 20px;
-  opacity: 100%;
-  max-height: 500px;
-  box-shadow: insent 0, 0, 0, 0, #000000;
-  transition: ease-out;
-}
-
-.calcbt {
-  box-shadow: insent 100px, 0, 0, 0, #000000;
-}
-
-.calc {
-  position: relative;
-  display: inline-block;
-  opacity: 100%;
-}
-
-.calculator {
-  font-family: 'Poppins', sans-serif;
-  display: none;
-  position: absolute;
-  background-color: var(--color);
-  min-width: 500px;
-  min-height: 500px;
-  z-index: 1;
-  text-align: center;
-  border-radius: 10px;
-  opacity: 100%;
-  color: var(--font-color)
-  bottom: 50px;
-  resize: both;
-  overflow: auto;
-}
-.calculator p {
-  font-size: 30px;
-  opacity: 100%;
-}
-
-.calculator b {
-  font-family: 'Poppins', sans-serif;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  opacity: 100%;
-}
-
-.calc:hover .calculator {
-  display: block;
-  opacity: 100%;
-  bottom: 60px;
-  left: 50%;
-  transform: translateX(-70%);
-}
-
-input {
-  border: none;
-  border-radius: 10px;
-  background-color: white;
-  color: black;
-  outline: none;
-  padding: 4px;
-}
-
-.startbtn {
-  background: url("start menu.png");
-  padding: 30px;
-  border: none;
-  border-radius: 20px;
-  opacity: 100%;
-  max-height: 500px;
-}
-
-.start {
-  position: relative;
-  display: inline-block;
-  opacity: 100%;
-}
-
-.startmenu {
-  text-align: right;
-  font-family: 'Poppins', sans-serif;
-  display: none;
-  position: absolute;
-  background-color: var(--color);
-  min-width: 450px;
-  min-height: 150px;
-  z-index: 1;
-  text-align: center;
-  border-radius: 10px;
-  opacity: 100%;
-  color: var(--font-color)
-  bottom: 50px;
-  resize: both;
-  overflow: auto;
-}
-.startmenu p {
-  font-size: 30px;
-  opacity: 100%;
-}
-
-.startmenu button {
-  background: black;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  font-family: 'Poppins', sans-serif;
-}
-
-.filecontents button {
-  background: black;
-  color: white;
-  border: none;
-  border-radius: 2px;
-  padding: 5px;
-  font-family: 'Poppins', sans-serif;
-  margin: 5px;
-}
-
-.filecontents input {
-  color: black;
-  border: none;
-  border-radius: 2px;
-  padding: 5px;
-  font-family: 'Poppins', sans-serif;
-  margin: 5px;
-}
-
-.startmenu b {
-  font-family: 'Poppins', sans-serif;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  opacity: 100%;
-}
-
-
-.start:hover .startmenu {
-  display: block;
-  opacity: 100%;
-  bottom: 60px;
-  left: 50%;
-  transform: translateX(-70%);
-}
-
-.todo_list {
-  backdrop-filter: blur(5px) saturate(100%);
-  position: absolute;
-  right: 0.5%;
-  background-color: rgba(255, 255, 255, 0.1);
-  width: 300px;
-  width: 300px;
-  text-align: right;
-  border-radius: 10px;
-  padding: 10px;
-  overflow: hidden;
-  border: 1px white;
-}
-
-.todo_list::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -50%;
-  width: 100%;
-  height: 100%;
-  background: rgba(255,255,255,0.1);
-  transform: skewX(-395deg);
-  filter: blur(10px);
-}
-
-.todo_list button {
-  border: none;
-  border-radius: 100px;
-  color: white;
-  background: black;
-  padding: 4px;
-  width: 26px;
-}
-
-.fileapp input {
-  border: none;
-}
-
-img {
-  height: 75px;
-  border-radius: 10px;
-  margin: 10px;
-}
-
-.textbtn {
-  background-image: url("ide.png");
-  color: white;
-  padding: 30px;
-  border: none;
-  border-radius: 20px;
-  opacity: 100%;
-  max-height: 500px;
-  box-shadow: insent 0, 0, 0, 0, #000000;
-  transition: ease-out;
-}
-
-.textbtn {
-  box-shadow: insent 100px, 0, 0, 0, #000000;
-}
-
-.text {
-  position: relative;
-  display: inline-block;
-  opacity: 100%;
-}
-
-.texteditor {
-  font-family: 'Poppins', sans-serif;
-  display: none;
-  position: absolute;
-  background-color: var(--color);
-  min-width: 500px;
-  min-height: 500px;
-  z-index: 1;
-  text-align: center;
-  border-radius: 10px;
-  opacity: 100%;
-  color: var(--font-color)
-  bottom: 50px;
-  resize: both;
-  overflow: auto;
-}
-.texteditor p {
-  font-size: 30px;
-  opacity: 100%;
-}
-
-.texteditor b {
-  font-family: 'Poppins', sans-serif;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  opacity: 100%;
-}
-
-.text:hover .texteditor {
-  display: block;
-  opacity: 100%;
-  bottom: 60px;
-  left: 50%;
-  transform: translateX(-70%);
-}
-
-
-</style>
+	<title>Vanadite Ruby</title>
 </head>
-  <div class="info">
-    <body onload="startTime()">
-    <div id="txt">
-    </div>
-  </div>
-<div class="todo_list">
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>To Do List</title>
-</head>
-
 <body>
-  </section>
-    <h1>To Do List</h1>
-    <div class="container">
-        <input id="inputField" type="text"><button id="addToDo">+</button>
-        <div class="to-dos" id="toDoContainer">
-        </div>
+<script src="jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#hide").click(function(){
+    $("#calculator").hide();
+  });
+  $("#calcbtn").click(function(){
+    $("#calculator").show();
+  });
+});
+$(document).ready(function(){
+  $("#hideide").click(function(){
+    $("#ide").hide();
+  });
+  $("#idebtn").click(function(){
+    $("#ide").show();
+  });
+});
+$(document).ready(function(){
+  $("#hideart").click(function(){
+    $("#paint").hide();
+  });
+  $("#paintbtn").click(function(){
+    $("#paint").show();
+  });
+});
+$(document).ready(function(){
+  $("#hidebrow").click(function(){
+    $("#browser").hide();
+  });
+  $("#browbtn").click(function(){
+    $("#browser").show();
+  });
+});
+$(document).ready(function(){
+  $("#colapse").click(function(){
+    $("iframe").hide();
+  });
+  $("#show").click(function(){
+    $("iframe").show();
+  });
+});
+$(document).ready(function(){
+  $("#hideset").click(function(){
+    $("#settings").hide();
+  });
+  $("#setbtn").click(function(){
+    $("#settings").show();
+  });
+});
+</script>
+</head>
+<body>
+<div id="taskbar">
+<div class="info">
+  <body onload="startTime()">
+    <div id="txt">
+  </div>
+</div>
+<button id="startmenu"><img src="start.png" width="15px" height="15px">menu</button>
+<button id="calcbtn"><img src="calc.png" width="15px" height="15px">Calculator</button>
+<button id="idebtn"><img src="ide.png" width="15px" height="15px">Code Editor</button>
+<button id="paintbtn"><img src="doggle.png" width="15px" height="15px">Doggle</button>
+<button id="browbtn"><img src="browser.png" width="15px" height="15px"> Browser</button>
+<button id="setbtn"><img src="settings.png" width="15px" height="15px"></button>
+</div>
+<div id="paint">
+ <div id="header-1"><img src="browser.png" width="15px" height="15px">Doggle <button id="hideart">X</button></div>
+   <iframe src="art.html" width="496" height="460px"></iframe>
+</div>
+<div id="calculator">
+ <div id="header-1"><img src="calc.png" width="15px" height="15px">Calculator <button id="hide">X</button></div>
+   <iframe src="calc.html" width="496" height="460px"></iframe>
+</div>
+<div id="ide">
+ <div id="header-1"><img src="ide.png" width="15px" height="15px">Code Editor <button id="hideide">X</button></div>
+  <iframe src="ide.html" width="496" height="460px"></iframe>
+</div>
+<div id="browser">
+ <div id="header-1"><img src="browser.png" width="15px" height="15px">Browser <button id="hidebrow">X</button></div>
+  <iframe src="https://www.google.com/webhp?igu=1" width="900px" height="600px"></iframe>
+</div>
+<div id="settings">
+ <div id="header-1"><img src="settings.png" width="15px" height="15px">Settings <button id="hideset">X</button></div>
+    <div>
+      <h1>Theme</h1>
+        <input type="text" id="hex">
+        <input type="color" id="color">
+    </div>
+    <div>
+      <h2>Wallpapers</h2>
+        <button id="btn-1">Ghost</button>
+        <button id="btn-2">Purple Dividers</button>
+        <button id="btn-3">Green Dividers</button>
+        <button id="btn-4">Ring</button>
     </div>
     <script>
-      let addToDoButton = document.getElementById('addToDo');
-let toDoContainer = document.getElementById('toDoContainer');
-let inputField = document.getElementById('inputField');
+      let btn1 = document.querySelector('#btn-1');
+let btn2 = document.querySelector('#btn-2');
+let btn3 = document.querySelector('#btn-3');
+let btn4 = document.querySelector('#btn-4');
+btn1.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('bg.gif')";
+});
+btn2.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('bg.png')";
+});
+btn3.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('bg2.gif')";
+});
+btn4.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('ring.gif')";
+});
+      let colorInput = document.querySelector('#color');
+let hexInput = document.querySelector('#hex');
 
-addToDoButton.addEventListener('click', function(){
-    var paragraph = document.createElement('p');
-    paragraph.classList.add('paragraph-styling');
-    paragraph.innerText = inputField.value;
-    toDoContainer.appendChild(paragraph);
-    inputField.value = "";
-    paragraph.addEventListener('click', function(){
-        paragraph.style.textDecoration = "line-through";
-    })
-    paragraph.addEventListener('dblclick', function(){
-        toDoContainer.removeChild(paragraph);
-    })
-})
+colorInput.addEventListener('input', () =>{
+    let color = colorInput.value;
+    hexInput.value = color;
+    // document.body.style.backgroundColor = color;
+
+    document.querySelector('#startmenu').style.background = color;
+    document.querySelector('#hide').style.background = color;
+    document.querySelector('#hideset').style.background = color;
+    document.querySelector('#hidebrow').style.background = color;
+    document.querySelector('#hideide').style.background = color;
+    document.querySelector('#hideart').style.background = color;
+});
     </script>
-    <style type="text/css">
+</body>
+</html>
+</div>
+</body>
+<style type="text/css">
+button {
+  font-family: 'Poppins', sans-serif;
+}
+#browbtn:hover {
+  background: white;
+  color: black;
+}
+#setbtn:hover {
+  background: white;
+  color: black;
+}
+#calcbtn:hover {
+  background: white;
+  color: black;
+}
+#idebtn:hover {
+  background: white;
+  color: black;
+}
+#paintbtn:hover {
+  background: white;
+  color: black;
+}
+#startmenu:hover {
+  color: black;
+}
+.info {
+  position: absolute;
+  top: 1%;
+  right: 1%;
+  color: white;
+}
+iframe {
+	border: none;
+  resize: both;
+  overflow: auto;
+  display: inline-block;
+}
+* { cursor: url(cursor.png), default; }
+body {
+	background-image: url("bg.gif");
+	font-family: 'Poppins', sans-serif;
+  background-size: cover;
+  margin: 0;
+}
+#hideide {
+	border-radius: 100px;
+	outline: none;
+	border: none;
+	background: #ff6c6c;
+	color: white;
+  position: absolute;
+  top: 1.3%;
+  right: 1%;
+}
+#hideset {
+  border-radius: 100px;
+  outline: none;
+  border: none;
+  background: #ff6c6c;
+  color: white;
+  position: absolute;
+  top: 1.3%;
+  right: 1%;
+}
+#hidebrow {
+  border-radius: 100px;
+  outline: none;
+  border: none;
+  background: #ff6c6c;
+  color: white;
+  position: absolute;
+  top: 1.3%;
+  right: 1%;
+}
+#hideart {
+  border-radius: 100px;
+  outline: none;
+  border: none;
+  background: #ff6c6c;
+  color: white;
+  position: absolute;
+  top: 1.3%;
+  right: 1%;
+}
+#hide {
+	border-radius: 100px;
+	outline: none;
+	border: none;
+	background: #ff6c6c;
+	color: white;
+  position: absolute;
+  top: 1.3%;
+  right: 1%;
+}
+#taskbar {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(5px) saturate(100%);
+    margin: 0;
+    display: flex;
+    position: absolute;
+    width:100%;
+    bottom: 0;
+}
+#calculator {
+  display: none; 
+  position: absolute;
+  z-index: 9;
+  background-color: #242424;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+}
+#browser {
+  display: none; 
+  position: absolute;
+  z-index: 9;
+  background-color: #242424;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+}
+#header-1 {
+  padding: 5px;
+  cursor: move;
+  z-index: 10;
+  background-color: #242424;
+  color: white;
+  border-radius: 5px 5px 0px 0px;
+  text-align: left;
+}
+#calcbtn {
+  background: black;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 0;
+  transition: all 0.5s;
+}
+#startmenu {
+  color: black;
+  border: none;
+  padding: 5px;
+  border-radius: 0;
+  transition: all 0.5s;
+}
+#browbtn {
+  background: black;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 0;
+  transition: all 0.5s;
+}
+#idebtn {
+  background: black;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 0;
+  transition: all 0.5s;
+}
+#setbtn {
+  background: black;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 0;
+  transition: all 0.5s;
+}
+#paintbtn {
+  background: black;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 0;
+  transition: all 0.5s;
+}
+#ide {
+  display: none; 
+  position: absolute;
+  z-index: 9;
+  background-color: #242424;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  width: 500px;
+  height: 500px;
+}
+#settings {
+  display: none; 
+  position: absolute;
+  z-index: 9;
+  background-color: #242424;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  width: 500px;
+  height: 500px;
+}
+#paint {
+  display: none; 
+  position: absolute;
+  z-index: 9;
+  background-color: #242424;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  width: 500px;
+  height: 500px;
+}
 </style>
-</body>
-</html>
-<div id="dycalendar"></div>
-</div>
-  <div class="date">
-    <p id="date"></p>
-  </div>
-  <br>
-  <br>
-
-  <div class="taskbar">
-    <div class="start">
-      <button class="startbtn"> </button>
-      <div class="startmenu">
-        <h1> Vanadite OS start menu. </h1>
-        <button onclick="location.reload();">Restart</button>
-      </div>
-    <div class="dropup">
-      <button class="dropbtn"> </button>
-      <div class="dropup-content">
-        <iframe src="art.html" width="500" height="500"heigh></iframe>
-  </div>
-  <div class="calc">
-      <button class="calcbt"> </button>
-      <div class="calculator">
-        <iframe src="calc.html" width="500" height="500"heigh></iframe>
-  </div>
-    <div class="browser">
-  <button class="browserbtn"> </button>
-  <div class="browsercont">
-      <iframe src="https://www.google.com/webhp?igu=1" width="700" height="600"heigh></iframe>
-  </div>
-      <div class="fileapp">
-  <button class="filebtn"> </button>
-  <div class="filecontents">
-    <div class="container">
-      <br><br>
-      <form id="form" enctype="multipart/form-data" method="post">
-        <div class="form-group">
-          <input type="file" class="form-control" id="image">
-        </div>
-        <div class="form-group">
-          <button>Upload</button>
-    </div>
-    </form>
-    <button onclick="remove()">Delete all photos</button>
-    <div id="result">
-    </div>
-    </div>
-  </div>
-  <div class="text">
-    <button class="textbtn"> </button>
-        <div class="texteditor">
-          <iframe src="ide.html" width="700" height="600"heigh></iframe>
-  </div>
-  <div class="settings">
-  <button class="settingsbtn"> </button>
-  <div class="settingsmenu">
-      <div class="menu">
-        <img src="vanos.png"> 
-        <p> v3.0.1 </p>
-        <p2> (!) This build is not finalized so any bugs or issues may be resigned in the future </p2>
-        <h1> Theme </h1>
-        <h2>Background Color: </h2><input type="color" id="theme" value="#ffffff">
-        <h2>Text Color: </h2><input type="color" id="txttheme" value="#ffffff">
-  </div>
-</div>
-
-<script type="text/javascript" src="vanilla-tilt.js">
-  
-</script>
-</body>
-</html>
-<script type="text/javascript">
-  let theme = document.getElementById('theme')
-
-  theme.addEventListener('change', (e) => {
-    console.log(e.target.value)
-    document.documentElement.style.setProperty('--color', e.target.value)
-  })
-  let txttheme = document.getElementById('txttheme')
-
-  txttheme.addEventListener('change', (e) => {
-    console.log(e.target.value)
-    document.documentElement.style.setProperty('--font-color', e.target.value)
-  })
-  function startTime() {
+<script>
+    function startTime() {
   const today = new Date();
   let h = today.getHours();
   let m = today.getMinutes();
@@ -668,156 +367,216 @@ function checkTime(i) {
   if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
   return i;
 }
-  VanillaTilt.init(document.querySelector(".todo_list"), {
-    max: 25,
-    speed: 400
-  });
+//Make the DIV element draggagle:
+dragElement(document.getElementById("calculator"));
 
-  var form = document.getElementById('form')
-
-  var parentDiv = document.getElementById('result')
-
-  form.addEventListener('submit',function(event) {
-    event.preventDefault()
-
-    var reader = new FileReader()
-
-    var name = document.getElementById("image").files[0].name
-
-    reader.addEventListener('load', function() {
-      if(this.result && localStorage) {
-        window.localStorage.setItem(name,this.result)
-        alert("Image saved.")
-        parentDiv.innerHTML = ''
-        showImages()
-      }
-      else {
-        alert("Image was not saved.")
-      }
-    })
-
-    reader.readAsDataURL(document.getElementById('image').files[0])
-
-    console.log(name)
-
-  })
-
-    function showImages() {
-    for (let i = 0;i < window.localStorage.length; i++){
-      let res = window.localStorage.getItem(window.localStorage.key(i))
-      var image  = new Image()
-      image.src = res;
-
-      parentDiv.appendChild(image)
-
-    }
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
   }
 
-  function remove() {
-    window.localStorage.clear()
-    showImages()
-    parentDiv.innerHTML = ''
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
   }
 
-  showImages()
-  let calendar = document.querySelector('.calendar')
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
 
-const month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-
-isLeapYear = (year) => {
-    return (year % 4 === 0 && year % 100 !== 0 && year % 400 !== 0) || (year % 100 === 0 && year % 400 ===0)
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
 }
+dragElement(document.getElementById("ide"));
 
-getFebDays = (year) => {
-    return isLeapYear(year) ? 29 : 28
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
 }
+dragElement(document.getElementById("paint"));
 
-generateCalendar = (month, year) => {
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
 
-    let calendar_days = calendar.querySelector('.calendar-days')
-    let calendar_header_year = calendar.querySelector('#year')
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
 
-    let days_of_month = [31, getFebDays(year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
 
-    calendar_days.innerHTML = ''
-
-    let currDate = new Date()
-    if (!month) month = currDate.getMonth()
-    if (!year) year = currDate.getFullYear()
-
-    let curr_month = `${month_names[month]}`
-    month_picker.innerHTML = curr_month
-    calendar_header_year.innerHTML = year
-
-    // get first day of month
-    
-    let first_day = new Date(year, month, 1)
-
-    for (let i = 0; i <= days_of_month[month] + first_day.getDay() - 1; i++) {
-        let day = document.createElement('div')
-        if (i >= first_day.getDay()) {
-            day.classList.add('calendar-day-hover')
-            day.innerHTML = i - first_day.getDay() + 1
-            day.innerHTML += `<span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>`
-            if (i - first_day.getDay() + 1 === currDate.getDate() && year === currDate.getFullYear() && month === currDate.getMonth()) {
-                day.classList.add('curr-date')
-            }
-        }
-        calendar_days.appendChild(day)
-    }
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
 }
+dragElement(document.getElementById("browser"));
 
-let month_list = calendar.querySelector('.month-list')
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
 
-month_names.forEach((e, index) => {
-    let month = document.createElement('div')
-    month.innerHTML = `<div data-month="${index}">${e}</div>`
-    month.querySelector('div').onclick = () => {
-        month_list.classList.remove('show')
-        curr_month.value = index
-        generateCalendar(index, curr_year.value)
-    }
-    month_list.appendChild(month)
-})
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
 
-let month_picker = calendar.querySelector('#month-picker')
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
 
-month_picker.onclick = () => {
-    month_list.classList.add('show')
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
 }
+dragElement(document.getElementById("settings"));
 
-let currDate = new Date()
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
 
-let curr_month = {value: currDate.getMonth()}
-let curr_year = {value: currDate.getFullYear()}
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
 
-generateCalendar(curr_month.value, curr_year.value)
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
 
-document.querySelector('#prev-year').onclick = () => {
-    --curr_year.value
-    generateCalendar(curr_month.value, curr_year.value)
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
 }
-
-document.querySelector('#next-year').onclick = () => {
-    ++curr_year.value
-    generateCalendar(curr_month.value, curr_year.value)
-}
-
-let dark_mode_toggle = document.querySelector('.dark-mode-switch')
-
-dark_mode_toggle.onclick = () => {
-    document.querySelector('body').classList.toggle('light')
-    document.querySelector('body').classList.toggle('dark')
-}
-
-  VanillaTilt.init(document.querySelector(".calender"), {
-    max: 25,
-    speed: 400
-  });
-
-
 </script>
-<link rel="stylesheet" type="text/css" href="calender.css">
+</html>
