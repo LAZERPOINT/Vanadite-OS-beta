@@ -15,6 +15,14 @@ $(document).ready(function(){
   });
 });
 $(document).ready(function(){
+  $("#hidefiles").click(function(){
+    $("#files").hide();
+  });
+  $("#filebtn").click(function(){
+    $("#files").show();
+  });
+});
+$(document).ready(function(){
   $("#hideapp").click(function(){
     $("#App").hide();
   });
@@ -77,6 +85,10 @@ $(document).ready(function(){
 	<button class="hidemenu">X</button>
 	<h1> Start Menu </h1>
 	<button onClick="window.location.reload(true)">Reload</button>
+  <fieldset>
+    <legend>Apps</legend>
+    <div id="lsoutput"></div>
+  </fieldset>
 </div>
 <div id="taskbar">
 <div class="info">
@@ -91,27 +103,36 @@ $(document).ready(function(){
 <button id="browbtn"></button>
 <button id="setbtn"></button>
 <button id="appbtn"></button>
+<button id="filebtn"></button>
 </div>
 <div id="paint">
  <div id="header-1"><img src="browser.png" width="15px" height="15px">Doggle <button id="hideart">X</button></div>
    <iframe src="art.html" width="496" height="460px"></iframe>
 </div>
+<div id="files">
+ <div id="header-1"><img src="browser.png" width="15px" height="15px">Files <button id="hidefiles">X</button></div>
+   <iframe src="files.html" width="496" height="460px"></iframe>
+</div>
 <div id="App">
- <div id="header-1"><img src="browser.png" width="15px" height="15px">App Player <button id="hideapp">X</button></div>
+ <div id="header-1"><img src="app.png" width="15px" height="15px">App Player <button id="hideapp">X</button></div>
    <iframe src="appstore.html" width="496" height="460px"></iframe>
 </div>
+
 <div id="calculator">
  <div id="header-1"><img src="calc.png" width="15px" height="15px">Calculator <button id="hide">X</button></div>
    <iframe src="calc.html" width="496" height="460px"></iframe>
 </div>
+
 <div id="ide">
  <div id="header-1"><img src="ide.png" width="15px" height="15px">Code Editor <button id="hideide">X</button></div>
   <iframe src="ide.html" width="496" height="460px"></iframe>
 </div>
+
 <div id="browser">
  <div id="header-1"><img src="browser.png" width="15px" height="15px">Browser <button id="hidebrow">X</button></div>
   <iframe src="https://www.google.com/webhp?igu=1" width="900px" height="600px"></iframe>
 </div>
+
 <div id="settings">
  <div id="header-1"><img src="settings.png" width="15px" height="15px">Settings <button id="hideset">X</button></div>
     <div>
@@ -134,6 +155,12 @@ $(document).ready(function(){
         <button id="btn-9">Red mountaint gradient</button>
     </div>
     <script>
+        for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    const value = localStorage.getItem(key);
+
+    lsoutput.innerHTML += `${key} <a href="${value}">Play</a><br />`
+  }
 let btn1 = document.querySelector('#btn-1');
 let btn2 = document.querySelector('#btn-2');
 let btn3 = document.querySelector('#btn-3');
@@ -184,6 +211,7 @@ colorInput.addEventListener('input', () =>{
     document.querySelector('#hidebrow').style.background = color;
     document.querySelector('#hideide').style.background = color;
     document.querySelector('#hideart').style.background = color;
+    document.querySelector('#hidefiles').style.background = color;
 });
     </script>
 </body>
@@ -315,6 +343,7 @@ body {
 	background-image: url("bg.png");
 	font-family: 'Poppins', sans-serif;
   background-size: cover;
+  transition: 1s;
   margin: 0;
 }
 #hideide {
@@ -357,6 +386,16 @@ body {
   top: 1.3%;
   right: 1%;
 }
+#hidefiles {
+  border-radius: 100px;
+  outline: none;
+  border: none;
+  background: #ff6c6c;
+  color: white;
+  position: absolute;
+  top: 1.3%;
+  right: 1%;
+}
 #hideart {
   border-radius: 100px;
   outline: none;
@@ -388,8 +427,8 @@ body {
   right: 1%;
 }
 #taskbar {
+    resize: horizontal;
     box-shadow: 0px 0px 5px rgb(0,0,0, 0.20);
-    position: fixed;
 	  align-items: center;
     background-color: rgba(250, 250, 250, 0.20);
     backdrop-filter: blur(5px) saturate(100%);
@@ -405,6 +444,7 @@ body {
     height: 45px;
     left: 50%;
     transform: translateX(-50%);
+    overflow: auto;
 }
 #calculator {
   display: none; 
@@ -416,6 +456,16 @@ body {
   border-radius: 5px;
 }
 #browser {
+  display: none; 
+  position: absolute;
+  z-index: 9;
+  background-color: rgba(250, 250, 250, 0.20);
+  backdrop-filter: blur(5px) saturate(100%);
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+}
+#files {
   display: none; 
   position: absolute;
   z-index: 9;
@@ -493,6 +543,20 @@ body {
   max-width: 30px;
   margin: 3px;
 }
+#filebtn {
+  background: url("files.png");
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+    width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  max-height: 30px;
+  max-width: 30px;
+  margin: 3px;
+}
 #setbtn {
   background: url("settings.png");
   color: white;
@@ -507,8 +571,7 @@ body {
   max-width: 30px;
   margin: 3px;
 }
-#paintbtn {
-  background: url("doggle.png");
+#paintbtn { background: url("doggle.png");
   color: white;
   border: none;
   padding: 5px;
@@ -549,6 +612,7 @@ body {
   height: 500px;
 }
 #App {
+  resize: horizontal;
   box-shadow: 0px 0px 5px rgb(0,0,0, 0.20);
   display: none; 
   position: absolute;
@@ -560,6 +624,7 @@ body {
   border-radius: 5px;
   width: 500px;
   height: 500px;
+  overflow: auto;
 }
 #settings {
   box-shadow: 0px 0px 5px rgb(0,0,0, 0.20);
@@ -827,6 +892,48 @@ function dragElement(elmnt) {
   }
 }
 dragElement(document.getElementById("settings"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+dragElement(document.getElementById("files"));
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;

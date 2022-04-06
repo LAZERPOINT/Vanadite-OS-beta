@@ -1,0 +1,42 @@
+<body>
+	<h1> Files </h1>
+	<fieldset>
+	<legend>Add files</legend>
+		<input id="inpkey" type="text" placeholder="File name">
+		<input id="myFileInput" type="file" placeholder="File location">
+	</fieldset>
+	<fieldset>
+		<legend>Files</legend>
+		<div id="lsoutput"></div>
+	</fieldset>
+</body>
+<style type="text/css">
+	fieldset {
+		border-radius: 10px;
+		border-color: black;
+	}
+	body {
+		font-family: 'Poppins', sans-serif;
+		margin: 0;
+	}
+</style>
+<script type="text/javascript">
+	document.querySelector("#myFileInput").addEventListener("change", function() {
+		const key = inpkey.value;
+
+		const reader = new FileReader();
+
+		reader.addEventListener("load", () => {
+			localStorage.setItem(inpkey.value, reader.result);
+		});
+
+		reader.readAsDataURL(this.files[0]);
+	});
+
+	for (let i = 0; i < localStorage.length; i++) {
+		const key = localStorage.key(i);
+		const value = localStorage.getItem(key);
+
+		lsoutput.innerHTML += `${key} <a href="${value}">Open</a><br />`
+	}
+</script>
