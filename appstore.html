@@ -1,8 +1,51 @@
 <body>
-	<h1>Under construction</h1>
+	<h1> App player </h1>
+	<fieldset>
+	<legend>Add app</legend>
+		<input id="inpkey" type="text" placeholder="App name">
+		<input id="inpvalue" type="text" placeholder="App link">
+		<button type="button" id="btninsert">Import app</button>
+	</fieldset>
+	<fieldset>
+		<legend>Apps</legend>
+		<div id="lsoutput"></div>
+	</fieldset>
 </body>
 <style type="text/css">
+	fieldset {
+		border-radius: 10px;
+		border-color: black;
+	}
 	body {
 		font-family: 'Poppins', sans-serif;
+		margin: 0;
 	}
 </style>
+<script type="text/javascript">
+	const inpkey = document.getElementById("inpkey");
+	const inpvalue = document.getElementById("inpvalue");
+	const btninsert = document.getElementById("btninsert");
+	const lsoutput = document.getElementById("lsoutput");
+
+
+	btninsert.onclick = function () {
+		const key = inpkey.value;
+		const value = inpvalue.value;
+
+		console.log(key);
+		console.log(value);
+
+
+		if (key && value) {
+			localStorage.setItem(key, value);
+			location.reload();
+		}
+	};
+
+	for (let i = 0; i < localStorage.length; i++) {
+		const key = localStorage.key(i);
+		const value = localStorage.getItem(key);
+
+		lsoutput.innerHTML += `${key} <a href="${value}">Play</a><br />`
+	}
+</script>
