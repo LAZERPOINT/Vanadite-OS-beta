@@ -1,0 +1,22 @@
+<body>
+		<div id="lsoutput"></div>
+</body>
+<style type="text/css">
+	fieldset {
+		border-radius: 10px;
+		border-color: black;
+	}
+	body {
+		font-family: 'Poppins', sans-serif;
+		margin: 0;
+		overflow: hidden;
+	}
+</style>
+<script type="text/javascript">
+	for (let i = 0; i < localStorage.length; i++) {
+		const key = localStorage.key(i);
+		const value = localStorage.getItem(key);
+
+		lsoutput.innerHTML += `<img src="files.png"></img>${key} <br />`
+	}
+</script>

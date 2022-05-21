@@ -1,5 +1,5 @@
 <body>
-	<a id="egg" href="https://www.youtube.com/embed/KJO4v1iLXIE"></a>
+	<h1> App player </h1>
 	<fieldset>
 	<legend>Add app</legend>
 		<input id="inpkey" type="text" placeholder="App name">
@@ -12,27 +12,9 @@
 	</fieldset>
 </body>
 <style type="text/css">
-	input {
-		border: none;
-		background-color: rgba(250, 250, 250, 0.20);
-    	backdrop-filter: blur(5px) saturate(100%);
-		outline: none;
-		padding: 10px;
-		border-radius: 10px;
-		box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
-	}
-	button {
-		background-color: rgba(250, 250, 250, 0.20);
-    	backdrop-filter: blur(5px) saturate(100%);
-		box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
-		border: none;
-		outline: none;
-		padding: 10px;
-		border-radius: 10px;
-	}
 	fieldset {
 		border-radius: 10px;
-		border: none;
+		border-color: black;
 	}
 	body {
 		font-family: 'Poppins', sans-serif;
@@ -40,13 +22,6 @@
 	}
 </style>
 <script type="text/javascript">
-	document.addEventListener('keydown', function(event) {
-    if (event.keyCode == 80) {
-        egg.innerHTML += `click me`;
-
-    }
-}, true);
-
 	const inpkey = document.getElementById("inpkey");
 	const inpvalue = document.getElementById("inpvalue");
 	const btninsert = document.getElementById("btninsert");

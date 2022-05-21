@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 30 30">
+  <defs>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ff8282"/>
+      <stop offset="0.218" stop-color="#ffd960"/>
+      <stop offset="0.432" stop-color="#39ffbd"/>
+      <stop offset="0.679" stop-color="#4898ff"/>
+      <stop offset="0.854" stop-color="#a3f"/>
+      <stop offset="1" stop-color="#ff7979"/>
+    </radialGradient>
+    <clipPath id="clip-Doggle">
+      <rect width="30" height="30"/>
+    </clipPath>
+  </defs>
+  <g id="Doggle" clip-path="url(#clip-Doggle)">
+    <rect width="30" height="30" fill="#fff"/>
+    <path id="Subtraction_4" data-name="Subtraction 4" d="M9.5,19A9.5,9.5,0,0,1,2.782,2.782,9.5,9.5,0,0,1,16.217,16.218,9.438,9.438,0,0,1,9.5,19Zm0-13.934A4.434,4.434,0,1,0,13.933,9.5,4.438,4.438,0,0,0,9.5,5.066Z" transform="translate(6 6)" fill="url(#radial-gradient)"/>
+    <path id="Subtraction_1" data-name="Subtraction 1" d="M9.5,19A9.5,9.5,0,0,1,2.782,2.782,9.5,9.5,0,0,1,16.217,16.218,9.438,9.438,0,0,1,9.5,19Zm0-13.934A4.434,4.434,0,1,0,13.933,9.5,4.438,4.438,0,0,0,9.5,5.066Z" transform="translate(6 6)" fill="url(#radial-gradient)"/>
+  </g>
+</svg>
