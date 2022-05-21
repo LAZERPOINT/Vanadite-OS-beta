@@ -1,0 +1,1223 @@
+<style type="text/css">
+  @veiwport {
+    zoom: 1;
+    width: extend-to-zoom;
+  }
+  @-ms-veiwport{
+    width: extend-to-zoom;
+    zoom: 1;
+  }
+</style>
+<!DOCTYPE html>
+<html>
+<script type="text/javascript">
+</script>
+  <audio autoplay>
+    <source src="van.ogg" type="audio/oggs">
+  </audio>
+<head>
+  <link rel="manifest" href="manifest.json">
+  <meta name="veiwport" content="width=device-width, initial-scare=1">
+
+	<title>Vanadite Emerald</title>
+</head>
+<body onload="startTime()">
+<script src="jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#hide").click(function(){
+    $("#calculator").hide();
+  });
+  $("#calcbtn").click(function(){
+    $("#calculator").show();
+  });
+});
+$(document).ready(function(){
+  $("#hidefiles").click(function(){
+    $("#files").hide();
+  });
+  $("#filebtn").click(function(){
+    $("#files").show();
+  });
+});
+$(document).ready(function(){
+  $("#hideapp").click(function(){
+    $("#App").hide();
+  });
+  $("#appbtn").click(function(){
+    $("#App").show();
+  });
+});
+$(document).ready(function(){
+  $("#hideide").click(function(){
+    $("#ide").hide();
+  });
+  $("#idebtn").click(function(){
+    $("#ide").show();
+  });
+});
+$(document).ready(function(){
+  $("#hideart").click(function(){
+    $("#paint").hide();
+  });
+  $("#paintbtn").click(function(){
+    $("#paint").show();
+  });
+});
+$(document).ready(function(){
+  $("#hidebrow").click(function(){
+    $("#browser").hide();
+  });
+  $("#browbtn").click(function(){
+    $("#browser").show();
+  });
+});
+$(document).ready(function(){
+  $("#colapse").click(function(){
+    $("iframe").hide();
+  });
+  $("#show").click(function(){
+    $("iframe").show();
+  });
+});
+$(document).ready(function(){
+  $("#hideset").click(function(){
+    $("#settings").hide();
+  });
+  $("#setbtn").click(function(){
+    $("#settings").show();
+  });
+});
+$(document).ready(function(){
+  $(".hidemenu").click(function(){
+    $(".menu").hide();
+  });
+  $("#startmenu").click(function(){
+    $(".menu").show();
+  });
+});
+$(document).ready(function(){
+  $("#hidepost").click(function(){
+    $("#post").hide();
+  });
+  $("#postbtn").click(function(){
+    $("#post").show();
+  });
+});
+</script>
+</head>
+<body>
+<div class="menu">
+	<button class="hidemenu">X</button>
+	<h1> Start Menu </h1>
+	<button onClick="window.location.reload(true)">Reload</button>
+  <fieldset>
+    <legend>Apps</legend>
+    <div id="lsoutput"></div>
+  </fieldset>
+</div>
+<div id="taskbar">
+<div class="info">
+    <div id="txt">
+  </div>
+</div>
+<button id="startmenu"></button>
+<button id="calcbtn"></button>
+<button id="idebtn"></button>
+<button id="paintbtn"></button>
+<button id="browbtn"></button>
+<button id="setbtn"></button>
+<button id="appbtn"></button>
+<button id="filebtn"></button>
+<button id="postbtn"></button>
+</div>
+<div id="paint">
+ <div id="header-1"><img src="browser.png" width="15px" height="15px">Doggle <button id="hideart">X</button></div>
+   <iframe src="art.html" width="496" height="460px"></iframe>
+</div>
+<div id="post">
+ <div id="header-1"><img src="post.png" width="15px" height="15px">Figmint <button id="hidepost">X</button></div>
+   <iframe src="https://figmint.netlify.app/" width="920px" height="460px"></iframe>
+</div>
+<div id="widget">
+  <button id="backbtn" onclick="window.history.back()">Back</button>
+ <div id="header-2">Widget</div>
+   <iframe src="widget.html" width="350px" height="165px"></iframe>
+</div>
+<div id="files">
+  <button id="backbtn" onclick="window.history.back()">Back</button>
+ <div id="header-1"><img src="browser.png" width="15px" height="15px">Files <button id="hidefiles">X</button></div>
+   <iframe src="files.html" width="496" height="460px"></iframe>
+</div>
+<div id="App">
+  <button id="backbtn" onclick="window.history.back()">Back</button>
+ <div id="header-1"><img src="app.png" width="15px" height="15px">App Player <button id="hideapp">X</button></div>
+   <iframe src="appstore.html" width="496" height="460px"></iframe>
+</div>
+
+<div id="calculator">
+ <div id="header-1"><img src="calc.png" width="15px" height="15px">Calculator <button id="hide">X</button></div>
+   <iframe src="calc.html" width="496" height="460px"></iframe>
+</div>
+
+<div id="ide">
+ <div id="header-1"><img src="ide.png" width="15px" height="15px">Code Editor <button id="hideide">X</button></div>
+  <iframe src="ide.html" width="496" height="460px"></iframe>
+</div>
+
+<div id="browser">
+  <button id="backbtn" onclick="window.history.back()">Back</button>
+ <div id="header-1"><img src="browser.png" width="15px" height="15px">Browser <button id="hidebrow">X</button></div>
+  <iframe src="https://www.google.com/webhp?igu=1" width="900px" height="600px"></iframe>
+</div>
+
+<div id="settings">
+ <div id="header-1"><img src="settings.png" width="15px" height="15px">Settings <button id="hideset">X</button></div>
+    <div>
+      <h1>Theme</h1>
+        <input type="text" id="hex">
+        <input type="color" id="color">
+        <br>
+    </div>
+    <div>
+
+      <h1>Wallpapers</h1>
+        <button id="btn-1">Green swirl</button>
+        <button id="btn-2">Crystal</button>
+        <button id="btn-3">Acid</button>
+        <button id="btn-4">Ring</button>
+        <button id="btn-5">Green mesh gradient</button>
+        <button id="btn-6">Blue mesh gradient</button>
+        <button id="btn-7">Red mesh gradient</button>
+        <button id="btn-8">Purple mesh gradient</button>
+        <button id="btn-9">Rainbow gradient</button>
+        <button id="btn-10">Green mountaint gradient</button>
+        <h1> Themes </h1>
+        <button id="btn-11">Figmint OS</button>
+        <button id="btn-12">Loopy OS</button>
+        <button id="btn-13">Vanadite OS</button>
+    </div>
+    <script>
+let btn1 = document.querySelector('#btn-1');
+let btn2 = document.querySelector('#btn-2');
+let btn3 = document.querySelector('#btn-3');
+let btn4 = document.querySelector('#btn-4');
+let btn5 = document.querySelector('#btn-5');
+let btn6 = document.querySelector('#btn-6');
+let btn7 = document.querySelector('#btn-7');
+let btn8 = document.querySelector('#btn-8');
+let btn9 = document.querySelector('#btn-9');
+let btn10 = document.querySelector('#btn-10');
+let btn11 = document.querySelector('#btn-11');
+let btn12 = document.querySelector('#btn-12');
+let btn13 = document.querySelector('#btn-13');
+btn1.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('bg.gif')";
+});
+btn11.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('Instagram Post – 4.png')";
+    document.getElementById("startmenu").style.background = "url('favicon – 3.svg')";
+    document.title.innerHTML = "Figmint OS";
+});
+btn13.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('bg.png')";
+    document.title.innerHTML = "Vanadite OS";
+    document.getElementById("startmenu").style.background = "url('start.svg')";
+});
+btn12.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('bg og.png')";
+    document.getElementById("startmenu").style.background = "url('favico3n – 2.svg')";
+    document.title.innerHTML = "Loopy OS";
+});
+btn10.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('gren.png')";
+});
+btn8.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('purple.png')";
+});
+btn9.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('bg.png')";
+});
+btn7.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('red.png')";
+});
+btn6.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('blue.png')";
+});
+btn5.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('green.png')";
+});
+btn2.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('bg3.gif')";
+});
+btn3.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('bg2.gif')";
+});
+btn4.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('ring.gif')";
+});
+      let colorInput = document.querySelector('#color');
+let hexInput = document.querySelector('#hex');
+
+colorInput.addEventListener('input', () =>{
+    let color = colorInput.value;
+    hexInput.value = color;
+    // document.body.style.backgroundColor = color;
+
+    document.querySelector('#hide').style.background = color;
+    document.querySelector('#hideset').style.background = color;
+    document.querySelector('#hidebrow').style.background = color;
+    document.querySelector('#hideide').style.background = color;
+    document.querySelector('#hideart').style.background = color;
+    document.querySelector('#hidefiles').style.background = color;
+});
+function startTime() {
+  const today = new Date();
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+  setTimeout(startTime, 1000);
+}
+
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+    </script>
+</body>
+</html>
+</div>
+</body>
+<style type="text/css">
+#backbtn {
+  top: 6px;
+  right: 30px;
+  position: absolute;
+  background: linear-gradient(to right, rgba(229, 239, 249, 0.1), rgba(213, 220, 238, 0.8), rgba(229, 239, 249, 0.1));
+  backdrop-filter: blur(10px);
+}
+input {
+  border: none;
+  outline: none;
+}
+button {
+  background: linear-gradient(to right, rgba(229, 239, 249, 0.1), rgba(213, 220, 238, 0.8), rgba(229, 239, 249, 0.1));
+    backdrop-filter: blur(10px);
+    font-family: 'Poppins', sans-serif; 
+    color: white; 
+    transition: all 2s;
+    border: none;
+}
+#btn-1 {
+  font-family: 'Poppins', sans-serif;
+  background: black;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 0;
+}
+#btn-2 {
+  font-family: 'Poppins', sans-serif;
+  background: black;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 0;
+}
+#btn-top {
+  font-family: 'Poppins', sans-serif;
+  background: black;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 0;
+}
+#btn-bottom {
+  font-family: 'Poppins', sans-serif;
+  background: black;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 0;
+}
+#btn-light {
+  font-family: 'Poppins', sans-serif;
+  background: black;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 0;
+}
+#btn-dark {
+  font-family: 'Poppins', sans-serif;
+  background: black;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 0;
+}
+#btn-3 {
+  font-family: 'Poppins', sans-serif;
+  background: black;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 0;
+}
+#btn-4 {
+  font-family: 'Poppins', sans-serif;
+  background: black;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 0;
+}
+#browbtn:hover {
+  color: black;
+  border-radius: 100vh;
+}
+button:hover {
+  background: linear-gradient(to right, rgba(229, 239, 249, 0.1), rgba(213, 220, 238, 0.8), rgba(229, 239, 249, 0.1));
+    backdrop-filter: blur(10px);
+  border-radius: 100vh;
+  border: none;
+  background: black;
+  color: white;
+}
+#filebtn:hover {
+  color: black;
+  border-radius: 100vh;
+}
+#setbtn:hover {
+  color: black;
+  border-radius: 100vh;
+}
+#calcbtn:hover {
+  color: black;
+  border-radius: 100vh;
+}
+#idebtn:hover {
+  color: black;
+  border-radius: 100vh;
+}
+#paintbtn:hover {
+  color: black;
+  border-radius: 100vh;
+}
+#startmenu:hover {
+  color: black;
+  border-radius: 100vh;
+}
+.info {
+  color: white;
+}
+iframe {
+	border: none;
+  border-radius: 10px;
+  display: inline-block;
+  overflow: none;
+}
+* { 
+	cursor: url(cursor.svg), default;
+}
+body {
+	background-image: url("bg.png");
+	font-family: 'Poppins', sans-serif;
+  background-size: cover;
+  transition: 1s;
+  margin: 0;
+}
+#hideide {
+	border-radius: 100px;
+	outline: none;
+	border: none;
+	background: #ff6c6c;
+	color: white;
+  position: absolute;
+  top: 1.3%;
+  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
+  right: 1%;
+}
+#hidepost {
+  border-radius: 100px;
+  outline: none;
+  border: none;
+  background: #ff6c6c;
+  color: white;
+  position: absolute;
+  top: 1.3%;
+  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
+  right: 1%;
+}
+#hidefile {
+  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
+  border-radius: 100px;
+  outline: none;
+  border: none;
+  background: #ff6c6c;
+  color: white;
+  position: absolute;
+  top: 1.3%;
+  right: 1%;
+}
+#hideset {
+  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
+  border-radius: 100px;
+  outline: none;
+  border: none;
+  background: #ff6c6c;
+  color: white;
+  position: absolute;
+  top: 1.3%;
+  right: 1%;
+}
+#hidebrow {
+  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
+  border-radius: 100px;
+  outline: none;
+  border: none;
+  background: #ff6c6c;
+  color: white;
+  position: absolute;
+  top: 1.3%;
+  right: 1%;
+}
+#hidefiles {
+  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
+  border-radius: 100px;
+  outline: none;
+  border: none;
+  background: #ff6c6c;
+  color: white;
+  position: absolute;
+  top: 1.3%;
+  right: 1%;
+}
+#hideart {
+  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
+  border-radius: 100px;
+  outline: none;
+  border: none;
+  background: #ff6c6c;
+  color: white;
+  position: absolute;
+  top: 1.3%;
+  right: 1%;
+}
+#hideapp {
+  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
+  border-radius: 100px;
+  outline: none;
+  border: none;
+  background: #ff6c6c;
+  color: white;
+  position: absolute;
+  top: 1.3%;
+  right: 1%;
+}
+#hide {
+  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
+	border-radius: 100px;
+	outline: none;
+	border: none;
+	background: #ff6c6c;
+	color: white;
+  position: absolute;
+  top: 1.3%;
+  right: 1%;
+}
+#txt {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+#taskbar {
+    resize: horizontal;
+    box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
+	  align-items: center;
+    background: linear-gradient(to right, rgba(229, 239, 249, 0.1), rgba(213, 220, 238, 0.8), rgba(229, 239, 249, 0.1));
+    backdrop-filter: blur(10px);
+    margin: 0;
+    border-radius: 20px;
+    display: flex;
+    position: absolute;
+    text-align: center;
+    justify-content: center;
+    z-index: 1000;
+    width: 70%;
+    bottom: 20px;
+    height: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: auto;
+}
+#calculator {
+  background-color: rgba(250, 250, 250, 0.20);
+    backdrop-filter: blur(5px) saturate(100%);
+  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
+  display: none; 
+  position: absolute;
+  z-index: 9;
+  background-color: #242424;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+}
+#browser {
+  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
+  display: none; 
+  position: absolute;
+  z-index: 9;
+  background-color: rgba(250, 250, 250, 0.20);
+  backdrop-filter: blur(5px) saturate(100%);
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+}
+#files {
+  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
+  display: none; 
+  position: absolute;
+  z-index: 9;
+  background-color: rgba(250, 250, 250, 0.20);
+  backdrop-filter: blur(5px) saturate(100%);
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+}
+#header-1 {
+  padding: 5px;
+  cursor: move;
+  z-index: 10;
+  background-color: rgba(250, 250, 250, 0);
+  color: white;
+  border-radius: 5px 5px 0px 0px;
+  text-align: left;
+}
+#header-2 {
+  padding: 5px;
+  cursor: move;
+  z-index: 10;
+  background-color: rgba(250, 250, 250, 0);
+  color: white;
+  border-radius: 5px 5px 0px 0px;
+  text-align: left;
+}
+#calcbtn {
+  background: url("calc.png");
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+    width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  max-height: 30px;
+  max-width: 30px;
+  margin: 3px;
+}
+#startmenu {
+  background: url("start.svg");
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  max-height: 30px;
+  max-width: 30px;
+  border-radius: 10px
+  margin: 3px;
+  position: absolute;
+  left: 10px;
+}
+#browbtn {
+  background: url("browser.png");
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+    width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  max-height: 30px;
+  max-width: 30px;
+  margin: 3px;
+}
+#idebtn {
+  background: url("ide.png");
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+    width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  max-height: 30px;
+  max-width: 30px;
+  margin: 3px;
+}
+#postbtn {
+  background: url("post.png");
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+    width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  max-height: 30px;
+  max-width: 30px;
+  margin: 3px;
+}
+#filebtn {
+  background: url("files.png");
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+    width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  max-height: 30px;
+  max-width: 30px;
+  margin: 3px;
+}
+#setbtn {
+  background: url("settings.png");
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+    width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  max-height: 30px;
+  max-width: 30px;
+  margin: 3px;
+}
+#paintbtn { background: url("doggle.png");
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+    width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  max-height: 30px;
+  max-width: 30px;
+  margin: 3px;
+}
+#appbtn {
+  background: url("app.png");
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+    width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  max-height: 30px;
+  max-width: 30px;
+  margin: 3px;
+}
+#ide {
+  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
+  display: none; 
+  position: absolute;
+  z-index: 9;
+  background-color: rgba(250, 250, 250, 0.20);
+  backdrop-filter: blur(5px) saturate(100%);
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  width: 500px;
+  height: 500px;
+}
+#post {
+  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
+  display: none; 
+  position: absolute;
+  z-index: 9;
+  background-color: rgba(250, 250, 250, 0.20);
+  backdrop-filter: blur(5px) saturate(100%);
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  width: 930px;
+  height: 500px;
+}
+#App {
+  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
+  display: none; 
+  position: absolute;
+  z-index: 9;
+  background-color: rgba(250, 250, 250, 0.20);
+  backdrop-filter: blur(5px) saturate(100%);
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  width: 500px;
+  height: 500px;
+}
+#widget {
+  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
+  position: absolute;
+  z-index: 9;
+  background-color: rgba(250, 250, 250, 0.20);
+  backdrop-filter: blur(5px) saturate(100%);
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  width: 350px;
+  height: 223px;
+}
+#settings {
+  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
+  display: none; 
+  position: absolute;
+  z-index: 9;
+  background-color: rgba(250, 250, 250, 0.20);
+  backdrop-filter: blur(5px) saturate(100%);
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  width: 500px;
+  height: 500px;
+}
+#paint {
+  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
+  display: none; 
+  position: absolute;
+  z-index: 9;
+  background-color: rgba(250, 250, 250, 0.20);
+  backdrop-filter: blur(5px) saturate(100%);
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  width: 500px;
+  height: 500px;
+}
+.menu {
+  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
+  background-color: rgba(250, 250, 250, 0.20);
+  backdrop-filter: blur(5px) saturate(100%);
+	position: absolute;
+	width: 200px;
+	height: 100vh;
+	z-index: 2;
+	display: none;
+  border-radius: 0px 20px 20px 0px;
+}
+</style>
+<script>
+
+    function startTime() {
+  const today = new Date();
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+  setTimeout(startTime, 1000);
+}
+
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+//Make the DIV element draggagle:
+dragElement(document.getElementById("calculator"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+dragElement(document.getElementById("App"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+dragElement(document.getElementById("ide"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+dragElement(document.getElementById("paint"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+dragElement(document.getElementById("browser"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+dragElement(document.getElementById("settings"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+dragElement(document.getElementById("files"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+dragElement(document.getElementById("widget"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+dragElement(document.getElementById("post"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+</html>

@@ -1,19 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22" height="28" viewBox="0 0 22 28">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="19" height="24" viewBox="0 0 19 24">
   <defs>
-    <filter id="Path_13" x="-0.043" y="-0.957" width="22.786" height="31.399" filterUnits="userSpaceOnUse">
+    <filter id="Path_13" x="0.5" y="-0.5" width="18" height="27" filterUnits="userSpaceOnUse">
       <feOffset dy="1" input="SourceAlpha"/>
-      <feGaussianBlur stdDeviation="1.5" result="blur"/>
-      <feFlood flood-opacity="0.71"/>
+      <feGaussianBlur stdDeviation="0.5" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
       <feComposite operator="in" in2="blur"/>
       <feComposite in="SourceGraphic"/>
     </filter>
     <clipPath id="clip-cursor">
-      <rect width="22" height="28"/>
+      <rect width="19" height="24"/>
     </clipPath>
   </defs>
   <g id="cursor" clip-path="url(#clip-cursor)">
     <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Path_13)">
-      <path id="Path_13-2" data-name="Path 13" d="M2248.5-14.085l3.832-3.979,3.439,6.927,3.341-1.916-3.586-6.387h5.061L2248.5-31.623Z" transform="translate(-2243.54 35.38)" stroke="#fff" stroke-width="1"/>
+      <g id="Path_13-2" data-name="Path 13" transform="translate(2260 -48)">
+        <path d="M -2250.49462890625 71.32350921630859 L -2252.6552734375 67.25934600830078 L -2252.8828125 66.83098602294922 L -2253.31787109375 67.04566955566406 L -2257.5 69.10940551757812 L -2257.5 49.17916107177734 L -2243.8583984375 62.37750625610352 L -2247.70068359375 64.27359008789062 L -2248.162841796875 64.50167083740234 L -2247.9208984375 64.95674133300781 L -2245.8486328125 68.85359954833984 L -2250.49462890625 71.32350921630859 Z" stroke="none"/>
+        <path d="M -2250.287841796875 70.64730834960938 L -2246.52490234375 68.64684295654297 L -2248.846435546875 64.2813720703125 L -2244.716064453125 62.24325561523438 L -2257 50.35862350463867 L -2257 68.30509948730469 L -2252.669189453125 66.16793823242188 L -2250.287841796875 70.64730834960938 M -2250.701416015625 71.99969482421875 L -2253.0966796875 67.49404907226562 L -2258 69.91371154785156 L -2258 47.99969863891602 L -2243.00048828125 62.51175689697266 L -2247.4794921875 64.72196960449219 L -2245.17236328125 69.06034851074219 L -2250.701416015625 71.99969482421875 Z" stroke="none" fill="#fff"/>
+      </g>
     </g>
   </g>
 </svg>
