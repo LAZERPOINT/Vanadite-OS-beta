@@ -19,7 +19,7 @@
   <link rel="manifest" href="manifest.json">
   <meta name="veiwport" content="width=device-width, initial-scare=1">
 
-	<title>Vanadite Emerald</title>
+	<title>Vanadite Lunar</title>
 </head>
 <body onload="startTime()">
 <script src="jquery.min.js"></script>
@@ -40,6 +40,16 @@ $(document).ready(function(){
     $("#files").show();
   });
 });
+
+$(document).ready(function(){
+  $("#hidedrive").click(function(){
+    $("#driveapp").hide();
+  });
+  $("#drive").click(function(){
+    $("#driveapp").show();
+  });
+});
+
 $(document).ready(function(){
   $("#hideapp").click(function(){
     $("#App").hide();
@@ -80,6 +90,16 @@ $(document).ready(function(){
     $("iframe").show();
   });
 });
+
+$(document).ready(function(){
+  $("#widgettoggle").click(function(){
+    $("#widget").hide();
+  });
+  $("#widgettoggle").click(function(){
+    $("#widget").show();
+  });
+});
+
 $(document).ready(function(){
   $("#hideset").click(function(){
     $("#settings").hide();
@@ -108,20 +128,39 @@ $(document).ready(function(){
 </head>
 <body>
 <div class="menu">
-	<button class="hidemenu">X</button>
 	<h1> Start Menu </h1>
+<form id="form" onsubmit="return false;">
+    <input type="text" id="userInput" />
+    <input type="submit" onclick="othername();" />
+</form>
+<iframe id="brow" src="menu.html"></iframe>
+<script type="text/javascript">
+  function othername() {
+    var input = document.getElementById("userInput").value;
+    document.getElementById("brow").src = input;
+}
+</script>
+<br>
+<br>
 	<button onClick="window.location.reload(true)">Reload</button>
-  <fieldset>
-    <legend>Apps</legend>
-    <div id="lsoutput"></div>
-  </fieldset>
+  <button class="hidemenu">X</button>
+  <p>Version: Lunar(1.5)</p>
 </div>
 <div id="taskbar">
+<button id="startmenu"></button>
+<button id="widgettoggle"></button>
+<button id="drive"></button>
+</div>
+
+<div id="timebar">
 <div class="info">
     <div id="txt">
   </div>
 </div>
-<button id="startmenu"></button>
+<button id="volume"></button>
+</div>
+
+<div id="appbar">
 <button id="calcbtn"></button>
 <button id="idebtn"></button>
 <button id="paintbtn"></button>
@@ -131,6 +170,8 @@ $(document).ready(function(){
 <button id="filebtn"></button>
 <button id="postbtn"></button>
 </div>
+
+
 <div id="paint">
  <div id="header-1"><img src="browser.png" width="15px" height="15px">Doggle <button id="hideart">X</button></div>
    <iframe src="art.html" width="496" height="460px"></iframe>
@@ -146,9 +187,15 @@ $(document).ready(function(){
 </div>
 <div id="files">
   <button id="backbtn" onclick="window.history.back()">Back</button>
- <div id="header-1"><img src="browser.png" width="15px" height="15px">Files <button id="hidefiles">X</button></div>
+ <div id="header-1"><img src="files.png" width="15px" height="15px">Files <button id="hidefiles">X</button></div>
    <iframe src="files.html" width="496" height="460px"></iframe>
 </div>
+
+<div id="driveapp">
+ <div id="header-1"><img src="online.svg" width="15px" height="15px">Drive <button id="hidedrive">X</button></div>
+   <iframe src="drive.html" width="496" height="460px"></iframe>
+</div>
+
 <div id="App">
   <button id="backbtn" onclick="window.history.back()">Back</button>
  <div id="header-1"><img src="app.png" width="15px" height="15px">App Player <button id="hideapp">X</button></div>
@@ -174,14 +221,14 @@ $(document).ready(function(){
 <div id="settings">
  <div id="header-1"><img src="settings.png" width="15px" height="15px">Settings <button id="hideset">X</button></div>
     <div>
-      <h1>Theme</h1>
+      <p>Color</p>
         <input type="text" id="hex">
         <input type="color" id="color">
         <br>
     </div>
     <div>
 
-      <h1>Wallpapers</h1>
+      <p>Wallpapers</p>
         <button id="btn-1">Green swirl</button>
         <button id="btn-2">Crystal</button>
         <button id="btn-3">Acid</button>
@@ -192,7 +239,11 @@ $(document).ready(function(){
         <button id="btn-8">Purple mesh gradient</button>
         <button id="btn-9">Rainbow gradient</button>
         <button id="btn-10">Green mountaint gradient</button>
-        <h1> Themes </h1>
+        <button id="btn-14">Dark red mesh gradient</button>
+        <button id="btn-15">Pink and blue mesh gradient</button>
+        <button id="btn-16">Figmint Wallpaper</button>
+        <button id="btn-17">Loopy Wallpaper</button>
+        <p> Themes </p>
         <button id="btn-11">Figmint OS</button>
         <button id="btn-12">Loopy OS</button>
         <button id="btn-13">Vanadite OS</button>
@@ -211,6 +262,10 @@ let btn10 = document.querySelector('#btn-10');
 let btn11 = document.querySelector('#btn-11');
 let btn12 = document.querySelector('#btn-12');
 let btn13 = document.querySelector('#btn-13');
+let btn14 = document.querySelector('#btn-14');
+let btn15 = document.querySelector('#btn-15');
+let btn16 = document.querySelector('#btn-16');
+let btn17 = document.querySelector('#btn-17');
 btn1.addEventListener('click', () =>{
     document.body.style.backgroundImage = "url('bg.gif')";
 });
@@ -218,6 +273,18 @@ btn11.addEventListener('click', () =>{
     document.body.style.backgroundImage = "url('Instagram Post – 4.png')";
     document.getElementById("startmenu").style.background = "url('favicon – 3.svg')";
     document.title.innerHTML = "Figmint OS";
+});
+btn14.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('dark.png')";
+});
+btn15.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('backg.png')";
+});
+btn16.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('Instagram Post – 4.png')";
+});
+btn17.addEventListener('click', () =>{
+    document.body.style.backgroundImage = "url('bg og.png')";
 });
 btn13.addEventListener('click', () =>{
     document.body.style.backgroundImage = "url('bg.png')";
@@ -296,7 +363,7 @@ function checkTime(i) {
   top: 6px;
   right: 30px;
   position: absolute;
-  background: linear-gradient(to right, rgba(229, 239, 249, 0.1), rgba(213, 220, 238, 0.8), rgba(229, 239, 249, 0.1));
+  background-color: rgba(0, 0, 0, 0.50);
   backdrop-filter: blur(10px);
 }
 input {
@@ -304,7 +371,7 @@ input {
   outline: none;
 }
 button {
-  background: linear-gradient(to right, rgba(229, 239, 249, 0.1), rgba(213, 220, 238, 0.8), rgba(229, 239, 249, 0.1));
+  background-color: rgba(0, 0, 0, 0.50);
     backdrop-filter: blur(10px);
     font-family: 'Poppins', sans-serif; 
     color: white; 
@@ -380,7 +447,7 @@ button {
   border-radius: 100vh;
 }
 button:hover {
-  background: linear-gradient(to right, rgba(229, 239, 249, 0.1), rgba(213, 220, 238, 0.8), rgba(229, 239, 249, 0.1));
+  background-color: rgba(0, 0, 0, 0.50);
     backdrop-filter: blur(10px);
   border-radius: 100vh;
   border: none;
@@ -424,9 +491,10 @@ iframe {
 	cursor: url(cursor.svg), default;
 }
 body {
-	background-image: url("bg.png");
+	background-image: url("dark.png");
 	font-family: 'Poppins', sans-serif;
   background-size: cover;
+  color: white;
   transition: 1s;
   margin: 0;
 }
@@ -438,7 +506,6 @@ body {
 	color: white;
   position: absolute;
   top: 1.3%;
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   right: 1%;
 }
 #hidepost {
@@ -449,11 +516,19 @@ body {
   color: white;
   position: absolute;
   top: 1.3%;
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   right: 1%;
 }
 #hidefile {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
+  border-radius: 100px;
+  outline: none;
+  border: none;
+  background: #ff6c6c;
+  color: white;
+  position: absolute;
+  top: 1.3%;
+  right: 1%;
+}
+#hidedrive {
   border-radius: 100px;
   outline: none;
   border: none;
@@ -464,7 +539,6 @@ body {
   right: 1%;
 }
 #hideset {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   border-radius: 100px;
   outline: none;
   border: none;
@@ -475,7 +549,6 @@ body {
   right: 1%;
 }
 #hidebrow {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   border-radius: 100px;
   outline: none;
   border: none;
@@ -486,7 +559,6 @@ body {
   right: 1%;
 }
 #hidefiles {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   border-radius: 100px;
   outline: none;
   border: none;
@@ -497,7 +569,6 @@ body {
   right: 1%;
 }
 #hideart {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   border-radius: 100px;
   outline: none;
   border: none;
@@ -508,7 +579,6 @@ body {
   right: 1%;
 }
 #hideapp {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   border-radius: 100px;
   outline: none;
   border: none;
@@ -519,7 +589,6 @@ body {
   right: 1%;
 }
 #hide {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
 	border-radius: 100px;
 	outline: none;
 	border: none;
@@ -535,29 +604,61 @@ body {
   bottom: 10px;
 }
 #taskbar {
-    resize: horizontal;
-    box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
 	  align-items: center;
-    background: linear-gradient(to right, rgba(229, 239, 249, 0.1), rgba(213, 220, 238, 0.8), rgba(229, 239, 249, 0.1));
+    background: rgba(0,0,0, 0.5);
     backdrop-filter: blur(10px);
     margin: 0;
-    border-radius: 20px;
+    border-radius: 10px;
     display: flex;
     position: absolute;
     text-align: center;
     justify-content: center;
     z-index: 1000;
-    width: 70%;
+    width: 10%;
     bottom: 20px;
     height: 45px;
     left: 50%;
     transform: translateX(-50%);
     overflow: auto;
 }
+#timebar {
+    align-items: center;
+    background: rgba(0,0,0, 0.5);
+    backdrop-filter: blur(10px);
+    margin: 0;
+    border-radius: 10px;
+    display: flex;
+    position: absolute;
+    text-align: center;
+    justify-content: center;
+    z-index: 1000;
+    width: 8%;
+    bottom: 20px;
+    height: 45px;
+    right: 1%;
+    overflow: auto;
+}
+#appbar {
+    align-items: center;
+    background: rgba(0,0,0, 0.5);
+    backdrop-filter: blur(10px);
+    margin: 0;
+    border-radius: 10px;
+    display: flex;
+    position: absolute;
+    text-align: center;
+    justify-content: center;
+    z-index: 1000;
+    width: 20%;
+    bottom: 20px;
+    height: 45px;
+    left: 11%;
+    transform: translateX(-50%);
+    overflow: auto;
+}
 #calculator {
   background-color: rgba(250, 250, 250, 0.20);
     backdrop-filter: blur(5px) saturate(100%);
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   display: none; 
   position: absolute;
   z-index: 9;
@@ -567,22 +668,30 @@ body {
   border-radius: 5px;
 }
 #browser {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   display: none; 
   position: absolute;
   z-index: 9;
-  background-color: rgba(250, 250, 250, 0.20);
+  background-color: rgba(0, 0, 0, 0.50);
   backdrop-filter: blur(5px) saturate(100%);
   text-align: center;
   border: none;
   border-radius: 5px;
 }
 #files {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   display: none; 
   position: absolute;
   z-index: 9;
-  background-color: rgba(250, 250, 250, 0.20);
+  background-color: rgba(0, 0, 0, 0.50);
+  backdrop-filter: blur(5px) saturate(100%);
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+}
+#driveapp {
+  display: none; 
+  position: absolute;
+  z-index: 9;
+  background-color: rgba(0, 0, 0, 0.50);
   backdrop-filter: blur(5px) saturate(100%);
   text-align: center;
   border: none;
@@ -592,7 +701,7 @@ body {
   padding: 5px;
   cursor: move;
   z-index: 10;
-  background-color: rgba(250, 250, 250, 0);
+  background-color: rgba(0, 0, 0, 0.50);
   color: white;
   border-radius: 5px 5px 0px 0px;
   text-align: left;
@@ -601,7 +710,7 @@ body {
   padding: 5px;
   cursor: move;
   z-index: 10;
-  background-color: rgba(250, 250, 250, 0);
+  background-color: rgba(0, 0, 0, 0.50);
   color: white;
   border-radius: 5px 5px 0px 0px;
   text-align: left;
@@ -636,6 +745,57 @@ body {
   margin: 3px;
   position: absolute;
   left: 10px;
+}
+#volume {
+  background: url("vol.svg");
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  max-height: 30px;
+  max-width: 30px;
+  border-radius: 10px
+  margin: 3px;
+  position: absolute;
+  left: 10px;
+}
+#drive {
+  background: url("online.svg");
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  max-height: 30px;
+  max-width: 30px;
+  border-radius: 10px
+  margin: 3px;
+  position: absolute;
+  right: 10px;
+}
+#widgettoggle {
+  background: url("widget.svg");
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  max-height: 30px;
+  max-width: 30px;
+  border-radius: 10px
+  margin: 3px;
+  position: absolute;
+  left: 60px;
 }
 #browbtn {
   background: url("browser.png");
@@ -707,7 +867,8 @@ body {
   max-width: 30px;
   margin: 3px;
 }
-#paintbtn { background: url("doggle.png");
+#paintbtn { 
+  background: url("doggle.png");
   color: white;
   border: none;
   padding: 5px;
@@ -735,11 +896,10 @@ body {
   margin: 3px;
 }
 #ide {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   display: none; 
   position: absolute;
   z-index: 9;
-  background-color: rgba(250, 250, 250, 0.20);
+  background-color: rgba(0, 0, 0, 0.50);
   backdrop-filter: blur(5px) saturate(100%);
   text-align: center;
   border: none;
@@ -748,11 +908,10 @@ body {
   height: 500px;
 }
 #post {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   display: none; 
   position: absolute;
   z-index: 9;
-  background-color: rgba(250, 250, 250, 0.20);
+  background-color: rgba(0, 0, 0, 0.50);
   backdrop-filter: blur(5px) saturate(100%);
   text-align: center;
   border: none;
@@ -761,11 +920,10 @@ body {
   height: 500px;
 }
 #App {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   display: none; 
   position: absolute;
   z-index: 9;
-  background-color: rgba(250, 250, 250, 0.20);
+  background-color: rgba(0, 0, 0, 0.50);
   backdrop-filter: blur(5px) saturate(100%);
   text-align: center;
   border: none;
@@ -774,10 +932,10 @@ body {
   height: 500px;
 }
 #widget {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   position: absolute;
   z-index: 9;
-  background-color: rgba(250, 250, 250, 0.20);
+  display: none;
+  background-color: rgba(0, 0, 0, 0.50);
   backdrop-filter: blur(5px) saturate(100%);
   text-align: center;
   border: none;
@@ -786,24 +944,22 @@ body {
   height: 223px;
 }
 #settings {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   display: none; 
   position: absolute;
   z-index: 9;
-  background-color: rgba(250, 250, 250, 0.20);
+  background-color: rgba(0, 0, 0, 0.50);
   backdrop-filter: blur(5px) saturate(100%);
-  text-align: center;
+  text-align: left;
   border: none;
   border-radius: 5px;
   width: 500px;
   height: 500px;
 }
 #paint {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
   display: none; 
   position: absolute;
   z-index: 9;
-  background-color: rgba(250, 250, 250, 0.20);
+  background-color: rgba(0, 0, 0, 0.50);
   backdrop-filter: blur(5px) saturate(100%);
   text-align: center;
   border: none;
@@ -812,15 +968,21 @@ body {
   height: 500px;
 }
 .menu {
-  box-shadow: -5px -5px 15px rgba(255,255,255, 0.5), 5px 5px 15px rgba(70,70,70,0.12);
-  background-color: rgba(250, 250, 250, 0.20);
+  background-color: rgba(0, 0, 0, 0.50);
   backdrop-filter: blur(5px) saturate(100%);
 	position: absolute;
-	width: 200px;
-	height: 100vh;
+	width: 400px;
+	height: 70vh;
 	z-index: 2;
+  left: 50%;
+  transform: translateX(-50%);
 	display: none;
-  border-radius: 0px 20px 20px 0px;
+  border-radius: 20px;
+  bottom: 11%;
+}
+#brow {
+  width: 400px;
+  height: 35vh;
 }
 </style>
 <script>
@@ -1219,5 +1381,53 @@ function dragElement(elmnt) {
     document.onmousemove = null;
   }
 }
+
+
+
+dragElement(document.getElementById("driveapp"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+
+
+
 </script>
 </html>

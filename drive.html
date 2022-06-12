@@ -1,0 +1,132 @@
+<html>
+<head>
+  <title>Vanadite ODrive</title>
+</head>
+  <body>
+    <h1>Vanadite ODrive</h1>
+
+    <form id="sign">
+      <input id="alias" placeholder="username">
+      <input id="pass" type="password" placeholder="passphrase">
+      <input id="in" type="submit" value="sign in">
+      <input id="up" type="button" value="sign up">
+    </form>
+
+    <ul></ul>
+
+    <form id="said">
+        <input id="say">
+        <input id="speak" type="submit" value="speak">
+    </form>
+
+    <script src="jquery.js"></script>
+    <script src="gun.js"></script>
+    <script src="sea.js"></script>
+    <!-- script src="https://cdn.jsdelivr.net/npm/gun/lib/webrtc.js"></script -->
+    <script>
+    var gun = Gun(['http://localhost:8765/gun', 'https://gun-manhattan.herokuapp.com/gun']);
+    var user = gun.user();
+
+    $('#up').on('click', function(e){
+      user.create($('#alias').val(), $('#pass').val());
+    });
+
+    $('#sign').on('submit', function(e){
+      e.preventDefault();
+      user.auth($('#alias').val(), $('#pass').val());
+    });
+
+    $('#said').on('submit', function(e){
+      e.preventDefault();
+      if(!user.is){ return }
+      user.get('said').set($('#say').val());
+      $('#say').val("");
+    });
+
+    function UI(say, id){
+      var li = $('#' + id).get(0) || $(`<iframe src="${say}">`).attr('id', id).appendTo('ul');
+      $(li).text(say);
+    };
+
+    gun.on('auth', function(){
+      $('#sign').hide();
+      user.get('said').map().once(UI);
+    });
+
+    </script>
+  </body>
+</html>
+<style type="text/css">
+    a {
+    color: black;
+    text-decoration: none;
+    text-decoration-style: none;
+    text-underline-position: none;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    background-color: white;
+      backdrop-filter: blur(5px) saturate(100%);
+    outline: none;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  #from {
+    position: absolute;
+    right: 40px;
+    bottom: 65%;
+    transform: translateY(50%);
+  }
+  #title {
+  }
+  p {
+    background: white;
+    color: black;
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+  }
+    @veiwport {
+  }
+    zoom: 10;
+    width: extend-to-zoom;
+  }
+  @-ms-veiwport{
+    width: extend-to-zoom;
+    zoom: 3;
+  }
+  #title {
+    position: absolute;
+    top: 21px;
+    font-size: 24px;
+  }
+  #sign {
+    background-color: rgba(250, 250, 250, 0.20);
+    backdrop-filter: blur(5px) saturate(100%);
+    border-radius: 20px;
+    padding: 20px;
+  }
+body {
+  font-family: 'Poppins', sans-serif;
+  background-size: cover;
+  transition: 1s;
+  margin: 0;
+  text-align: left;
+}
+  input {
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    background-color: white;
+      backdrop-filter: blur(5px) saturate(100%);
+    outline: none;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  button {
+    background-color: rgba(250, 250, 250, 0.20);
+      backdrop-filter: blur(5px) saturate(100%);
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 10px;
+  }
+</style>
